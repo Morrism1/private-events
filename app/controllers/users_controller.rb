@@ -7,14 +7,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = 'Please confirm your email address to continue'
-      redirect_to events_path
+      redirect_to @user
     else
       flash[:error] = 'Ooooppss, something went wrong!'
       render 'new'
     end
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   private
 
