@@ -1,1 +1,7 @@
-<%= render current_user.events %>
+<% if @user.events.any? %>
+
+    <%= render @events %>
+<% else %>
+<p>No events found</p>
+
+<% end %>
