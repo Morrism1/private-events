@@ -1,1 +1,9 @@
-<p><%= @event.creator.username %></p>
+<%= if @event.attendees.any?%>
+    <% @event.attendees.each do |attendee|%>
+    <p>
+        <%= attendee.name%>
+    </p>
+    <% end %>
+<% else%>
+    <p>No attendees</p>
+<% end %>
