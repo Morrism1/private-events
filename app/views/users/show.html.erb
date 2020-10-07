@@ -1,7 +1,12 @@
-<% if @user.events.any? %>
+<% if @user.attended_events.any? %>
+    <h3>Upcoming Events</h3>
 
-    <%= render @events %>
+    <%= render @upcoming_events %>
 <% else %>
-<p>No events found</p>
+<p>No Upcoming Events </p>
 
+<% end %>
+
+<% if @user.events.past.any?%>
+    <%= render @events.past %>
 <% end %>
