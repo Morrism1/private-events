@@ -2,14 +2,28 @@
 <html>
   <head>
     <title>PrivateEvents</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'shared/nav' %>
+    <%= render partial: 'shared/message' %>
+     <main class="lighten-4"> 
+        <div class="container">
+          <%= yield %>
+        </div>
+    
+    </main>
+    <script>$(document).ready(function(){
+        $('.sidenav').sidenav();
+        $(".dropdown-trigger").dropdown();
+      });</script>
   </body>
 </html>

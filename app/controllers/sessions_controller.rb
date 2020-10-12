@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(params[:name])
-    if user&.authenticate(params[:session][:name])
+    if user
       log_in(user)
-      redirect_to root_url, notice: 'Logged in!'
+      redirect_to user, notice: 'Logged in!'
     else
       flash.now.alert = 'Name already Taken!'
       render 'new'
