@@ -4,7 +4,9 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
   end
 
   def logged_in?
@@ -17,7 +19,7 @@ module SessionsHelper
   end
 
   def current_user?(user)
-    user == @current_user
+    user == current_user
   end
 
   def store_location

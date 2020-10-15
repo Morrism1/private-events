@@ -8,7 +8,7 @@ class User < ApplicationRecord
     self.attended_events.upcoming
   end
 
-  def previous_events
+  def past_events
 		self.attended_events.past
   end
   

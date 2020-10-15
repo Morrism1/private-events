@@ -22,7 +22,7 @@
               <li><%= link_to 'Sign Up', signup_path %></li>
               <li><%= link_to 'Sign In', login_path %></li>
             <% else %>
-              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><%= @user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
             <% end %>
           </ul>
         </div>
@@ -34,7 +34,7 @@
          <li><%= link_to 'Sign Up', signup_path %></li>
          <li><%= link_to 'Sign In', login_path %></li>
       <% else %>
-         <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+         <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><%= @user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
     <% end %>
     </ul>
   </header>
