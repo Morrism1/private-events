@@ -1,12 +1,60 @@
-<% if @user.attended_events.any? %>
-    <h3>Upcoming Events</h3>
+<div class="row">
+<div class="col m6 offset-m3 center">
+<h4><%= @user.name %></h4>
 
-    <%= render @upcoming_events %>
-<% else %>
-<p>No Upcoming Events </p>
+<h1>Created Events</h1>
+<h2>Past Hosted Events</h2>
+<div class="row">
+  <div class="col s12 m6">
+    <% @past_created.each do |event| %>
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= link_to event.title, event %></span>
+          <p><%= event.description %></p>
+        </div>
+        <div class="card-action">
+          <p><%= @event.creator.name %></p>
+          <p><%= @event.location %></p>
+          <p><%= @event.date %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<% end %>
+<h2>Upcoming Hosted Events</h2>
+<div class="row">
+  <div class="col s12 m6">
+    <% @upcoming_created.each do |event| %>
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= link_to event.title, event %></span>
+          <p><%= @event.description %></p>
+        </div>
+        <div class="card-action">
+          <p><%= @event.creator.name %></p>
+          <p><%= @event.location %></p>
+          <p><%= @event.date %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<% if @user.events.past.any?%>
-    <%= render @events.past %>
-<% end %>
+<h1>Attended Events</h1>
+
+<h2>Past Events Attended</h2>
+<ul class="collection">
+  <% @past_events.each do |event| %> 
+    <li class="collection-item"><%= link_to event.title, event %>
+ <% end %>
+</ul>
+
+<h2>Upcoming Events to Attend</h2>
+<ul class="collection">
+  <% @upcoming_events.each do |event| %>
+    <li class="collection-item"><%= link_to event.title, event %></li>
+  <% end %>
+</ul>
+</div>
+</div>
