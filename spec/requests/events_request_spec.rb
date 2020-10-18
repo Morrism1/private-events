@@ -47,7 +47,7 @@ RSpec.describe 'Event Management', type: :feature do
     fill_in 'event_title', with: 'Elixir'
     fill_in 'event_description', with: 'Next cool language to Ruby'
     fill_in 'event_location', with: 'Lagos'
-    fill_in 'event_date',	with: '2022-04-12'
+    fill_in 'event_date', with: '2022-04-12'
     click_button 'Create Event'
     sleep(3)
     expect(page).to have_content('Elixir')
