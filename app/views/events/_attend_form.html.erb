@@ -1,11 +1,10 @@
 <% if logged_in? && current_user.attending?(@event) %> 
 	<%= render 'cancel_form' %>
- <%# <% else %>
-	<%= form_for(url: event_attendee_path, local: true) do |f| %>
-	<%= f.hidden_field :creator_id, value: current_user.id %>
-	<%= f.hidden_field :attended_event_id, value: current_user.events[0][:id] %>
-	User: <%= f.text_field :attendee_id, placeholder: "Please enter the user's ID" %><br><br>
-	<%= f.submit 'Attend' %>
-	<p><%= current_user.events[0][:id] %></p>
-<% end %>  %>
+  <% else %>
+	<%= form_with(url: attend_path, scope: :attend, local: true) do |f| %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.hidden_field :event_id, value: params[:id] %>
+
+		<%= f.submit "Attend" %>
+	<% end %>
 <% end %>
