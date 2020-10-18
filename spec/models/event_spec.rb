@@ -33,7 +33,7 @@ RSpec.describe Event, type: :model do
        Pellentesque malesuada felis nec massa rutrum varius.
        Proin in odio accumsan, pretium diam in,
        convallis tellus.'
-      e = Event.new(creator_id: 1, date: '2020-05-20', description: descpt)
+      e = Event.new(creator_id: 1, date: '2021-04-10', description: descpt)
       expect(e.save).to eq(false)
     end
   end
