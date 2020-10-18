@@ -16,7 +16,11 @@ RSpec.describe User, type: :model do
 
   context 'Validate model helper methods' do
     let(:user) { User.create(name: 'Maurice') }
-    let(:event) { Event.create(title: 'Javascript', description: 'super cool language', location: 'New york', date: '2022-04-12', creator_id: '1') }
+    let(:event) do
+      Event.create(title: 'Javascript',
+                   description: 'super cool language', location: 'New york',
+                   date: '2022-04-12', creator_id: '1')
+    end
     before(:each) do
       EventAttendee.new(attendee_id: user.id, attended_event_id: event.id).save
     end
