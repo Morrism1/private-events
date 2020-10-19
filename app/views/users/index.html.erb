@@ -1,12 +1,7 @@
 <h1>All Users</h1>
 
-<% if params[:event_id] %>
-  <%= render 'user_select_form' %>
-<% end %>
-
-
 <% @users.each do |user| %>
   <ul class="collection">
-    <li class="collection-item"><%= user.name %></li>
+    <li class="collection-item"><%= link_to user.name, user %> </li>
   </ul>
 <% end %>
