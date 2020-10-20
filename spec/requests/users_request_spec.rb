@@ -43,6 +43,6 @@ RSpec.describe 'create user and redirect to user show page', type: :feature do
     fill_in 'user_name', with: user.name
     click_button 'Create my account'
     sleep(3)
-    expect(page).to have_content('My Events')
+    expect(page).to have_content('Users')
   end
 end

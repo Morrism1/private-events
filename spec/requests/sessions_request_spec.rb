@@ -9,7 +9,7 @@ RSpec.describe 'login followed by logout', type: :feature do
     fill_in 'session_name', with: user.name
     click_button 'Login'
     sleep(3)
-    expect(page).to have_content('My Events')
+    expect(page).to have_content('Users')
     click_on 'Log out', match: :first
     sleep(3)
     expect(page).to have_content('Login')
