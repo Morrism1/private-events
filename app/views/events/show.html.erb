@@ -12,23 +12,14 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <% if logged_in? %>
-    <h4>Attendees</h4>
-    <ul>
-        <% @event.attendees.each do |attendee| %>
-            <li><%= link_to attendee.name, attendee %></li>
-        <% end %>
-    </ul>
-    <% if !@event.attendees.to_a.any?(current_user) %>
-        <%= render 'attend_form' %>
-    <% else %>
-        <p>You are already attending this event</p>
-    <% end %>
-<% else %>
-    <p>You must log in or sign up to view the attendees</p>
-<% end %>
+</div>
+<h4>Attendees</h4>
+ <% @event.attendees.each do |attendee| %>
+                <span class="attendee">
+                    <%=link_to attendee.name, attendee %>
+                </span> <br/>
+ <% end %>
+  <%= attend_button %>
 
 <br>
 
