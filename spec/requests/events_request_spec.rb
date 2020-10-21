@@ -23,12 +23,30 @@ RSpec.describe EventsController, type: :controller do
       expect(@event.save).to eq(true)
     end
   end
+
+  context 'Create an event' do
+    it 'should not create a new event missing fields' do
+      @user = User.new(id: '1', name: 'Morris').save
+      @event = Event.new(id: '1', title: 'Javascript', date: '2022-04-14', creator_id: '1')
+      expect(@event.save).to eq(false)
+    end
+  end
+
   context 'Attend an event' do
     it 'should create an attendance for an event' do
       @user = User.new(id: '1', name: 'Morris').save
       @event = Event.new(id: '1', title: 'Javascript', description: 'Best programming language in Universe', location: 'New York', date: '2022-04-14', creator_id: '1').save
       @attend = EventAttendee.new(attendee_id: '1', attended_event_id: '1')
       expect(@attend.save).to eq(true)
+    end
+  end
+
+  context 'Attend an event' do
+    it 'should create an attendance for an event missing attend_id' do
+      @user = User.new(id: '1', name: 'Morris').save
+      @event = Event.new(id: '1', title: 'Javascript', description: 'Best programming language in Universe', location: 'New York', date: '2022-04-14', creator_id: '1').save
+      @attend = EventAttendee.new(attended_event_id: '1')
+      expect(@attend.save).to eq(false)
     end
   end
 end
