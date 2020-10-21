@@ -1,0 +1,7 @@
+<h1>All Users</h1>
+
+<% @users.each do |user| %>
+  <ul class="collection">
+    <li class="collection-item"><%= link_to user.name, user %> </li>
+  </ul>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col m6 offset-m3 center">
+    <%= form_with(model: @event, local: true) do |f| %>
+    <div class="inputfield"><%= f.label :title %>
+    <%= f.text_field :title %> <br><br>
+    </div>
+    
+    <div class="inputfield"><%= f.label :description %>
+    <%= f.text_area :description, class: "validate" %><br><br>
+    </div>
+    
+    <div class="inputfield"> <%= f.label :location %>
+    <%= f.text_field :location, class: "validate" %><br><br>
+    </div>
+    
+
+    <div class="inputfield"><%= f.label :date %>
+    <%= f.text_field :date, class: "datepicker" %><br><br>
+    </div>
+    
+
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>
