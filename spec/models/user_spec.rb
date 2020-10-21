@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'Validate model helper methods' do
-    let(:user) { User.create(name: 'Maurice') }
+    let(:user) { User.create(name: 'Kagabo') }
     let(:event) do
       Event.create(title: 'Javascript',
                    description: 'super cool language', location: 'New york',
@@ -25,8 +25,8 @@ RSpec.describe User, type: :model do
       EventAttendee.new(attendee_id: user.id, attended_event_id: event.id).save
     end
 
-    it 'should return upcoming events' do
-      expect(user.upcoming_events.size).to eq(1)
+    it 'should return 0 past events' do
+      expect(user.past_events.size).to eq(0)
     end
   end
   context 'User associations tests' do
