@@ -21,14 +21,14 @@ RSpec.describe Event, type: :model do
   end
 
   context 'validation tests truthy' do
-    it "Should save if everything is given" do
+    it 'Should save if everything is given' do
       e = Event.new(creator_id: 1, title: 'JS', description: 'Event 1', location: 'Kigali', date: '2021-01-11')
       expect(e).to be_a_new(Event)
     end
   end
 
   context 'validation tests truthy' do
-    it "Should save if everything is given" do
+    it 'Should save if everything is given' do
       e = Event.new(title: 'JS', description: 'Event 1', location: 'Kigali', date: '2021-01-11', creator_id: @user.id)
       expect(e).to be_valid
     end
